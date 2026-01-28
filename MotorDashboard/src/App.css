@@ -1,0 +1,150 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.dashboard-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3rem 1rem;
+  text-align: center;
+  background: linear-gradient(120deg, #f6f8fa 60%, #e3e9f7 100%);
+  min-height: 100vh;
+}
+.charts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.large-charts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.sensor-chart {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 1.5rem 1rem 1rem 1rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s;
+}
+.sensor-chart:hover {
+  box-shadow: 0 4px 24px #0002;
+}
+.large-sensor-chart {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 520px;
+  max-width: 700px;
+  flex: 1 1 520px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.large-sensor-chart:hover {
+  box-shadow: 0 8px 32px #0003;
+}
+.sensor-value {
+  margin-top: 1rem;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.sensor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.sensor-value-box {
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  margin: 0 1rem 1.5rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #e3e9f7;
+}
+.sensor-value-box:hover {
+  border-color: #90caf9;
+  box-shadow: 0 4px 24px #90caf933;
+}
+.sensor-label {
+  font-size: 1.15em;
+  margin-bottom: 0.5em;
+  color: #3949ab;
+  font-weight: 500;
+}
+
+h1 {
+  margin-bottom: 2.5rem;
+  color: #1a237e;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+body {
+  background: #f6f8fa;
+}
