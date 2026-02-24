@@ -104,7 +104,7 @@ You can replace the simulated random source with real sensor readings. Two sugge
 
 Below is a screenshot of the Motor Sensor Dashboard frontend application. It displays live sensor values, charts, predictions, and a critical warning notification when a fault is detected.
 
-![Motor Sensor Dashboard Screenshot](MotorDashboard/public/dashboard_screenshot.png)
+![Motor Sensor Dashboard Screenshot](./image.png)
 
 ## License & Contributions
 - Add license, dataset attribution, and contribution guidelines as needed.
