@@ -1,0 +1,36 @@
+
+Header row (column names) — short explanation for each:
+
+- UDI — unique identifier for the row / observation (record index).  
+- Product ID — product or unit identifier (string code for the specific part/machine).  
+- Type — categorical product/machine type (e.g., L, M, H).  
+- Air temperature [K] — ambient air temperature in Kelvin.  
+- Process temperature [K] — process (internal) temperature in Kelvin.  
+- Rotational speed [rpm] — shaft/machine rotational speed in revolutions per minute.  
+- Torque [Nm] — torque in Newton-meters.  
+- Tool wear [min] — tool wear / usage in minutes (how long the tool has been used).  
+- Machine failure — overall binary failure flag (1 = failure occurred for that observation, 0 = no failure).  
+- TWF — Tool Wear Failure (binary flag for that failure mode).  
+- HDF — Heat Dissipation / Heating-related Failure (binary flag for that failure mode).  
+- PWF — Power Failure (binary flag for that failure mode).  
+- OSF — Overstrain Failure (binary flag for that failure mode).  
+- RNF — Random/Noise Failure (binary flag for that failure mode).
+
+
+----------------------------------------------------
+
+Example microcontroler output is,
+
+{
+  "current": 3.5,
+  "voltage": 218,
+  "temperature": 82,
+  "vibration": 0.05,
+  "rpm": 1320
+}
+
+
+-----------------------------------------------------
+
+
+“Since physical DC motor fault datasets are limited, we adapted the AI4I predictive maintenance dataset by mapping its mechanical and thermal features to DC motor electrical parameters.

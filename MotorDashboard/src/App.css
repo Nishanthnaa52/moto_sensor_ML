@@ -132,6 +132,28 @@
   font-weight: 500;
 }
 
+.chart-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  color: #3949ab;
+}
+
+.chart-info {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 0.2em;
+  color: #222;
+}
+.chart-info-title {
+  color: #3949ab;
+  font-weight: 700;
+}
+.chart-info-sensor {
+  color: #00796b;
+  font-weight: 600;
+}
+
 h1 {
   margin-bottom: 2.5rem;
   color: #1a237e;
@@ -147,4 +169,34 @@ h2 {
 
 body {
   background: #f6f8fa;
+}
+
+.critical-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #ffebee 60%, #ffcdd2 100%);
+  border: 3px solid #e53935;
+  color: #b71c1c;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 14px;
+  padding: 1.2em 2em;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 24px #e5393533;
+  animation: critical-blink 1s steps(2, start) infinite;
+}
+.critical-icon {
+  font-size: 2em;
+  margin-right: 1em;
+  color: #e53935;
+}
+.critical-text {
+  letter-spacing: 1px;
+}
+
+@keyframes critical-blink {
+  to {
+    visibility: hidden;
+  }
 }

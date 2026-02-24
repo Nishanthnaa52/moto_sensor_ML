@@ -1,12 +1,15 @@
 import numpy as np
 import pandas as pd
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
-
+from flask_socketio import SocketIO, emit
+import pickle
+import time
 
 app = Flask(__name__)
 CORS(app)
-# Define the feature columns as per your dataset (excluding Product ID and UDI)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
 FEATURE_COLUMNS = [
     'Process temperature [K]',
     'Rotational speed [rpm]',
@@ -14,35 +17,23 @@ FEATURE_COLUMNS = [
     'Tool wear [min]'
 ]
 
-def generate_random_input():
-    # Generate random values within reasonable ranges for each feature
-    return {
-        'Process temperature [K]': float(np.random.uniform(305, 315)),
-        'Rotational speed [rpm]': int(np.random.uniform(1200, 2000)),
-        'Torque [Nm]': float(np.random.uniform(20, 60)),
-        'Tool wear [min]': int(np.random.uniform(0, 250))
-    }
+# Load the trained model
+with open('dc_motor_fault_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-@app.route('/random_input', methods=['GET'])
-def random_input_api():
-    """API to generate a random test input sample."""
-    sample = generate_random_input()
-    return jsonify(sample)
+# Load the real dataset for streaming
+train_df = pd.read_csv('ai4i_dc_motor_cleaned.csv')
+# Use only the required columns for input
+input_df = train_df[FEATURE_COLUMNS]
+input_records = input_df.to_dict(orient='records')
 
-@app.route('/random_predict', methods=['GET'])
-def random_predict_api():
-    """API to continuously generate random input and return predictions (simulated real-time)."""
-    import pickle
-    # Load the trained model
-    with open('dc_motor_fault_model.pkl', 'rb') as f:
-        model = pickle.load(f)
-    results = []
-    for _ in range(10):  # Simulate 10 continuous predictions
-        sample = generate_random_input()
+@socketio.on('start_stream')
+def handle_stream():
+    for sample in input_records:
         X = pd.DataFrame([sample], columns=FEATURE_COLUMNS)
         prediction = model.predict(X)[0]
-        results.append({'input': sample, 'prediction': int(prediction)})
-    return jsonify(results)
+        emit('sensor_data', {'input': sample, 'prediction': int(prediction)})
+        socketio.sleep(2)  # 2 second interval using socketio.sleep for non-blocking delay
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    socketio.run(app, port=5001, debug=True)
