@@ -106,8 +106,6 @@ Below is a screenshot of the Motor Sensor Dashboard frontend application. It dis
 
 ![Motor Sensor Dashboard Screenshot](./image.png)
 
-## License & Contributions
-- Add license, dataset attribution, and contribution guidelines as needed.
 
 ---
 
